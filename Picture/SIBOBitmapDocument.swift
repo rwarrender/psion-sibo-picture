@@ -21,11 +21,10 @@ class SIBOBitmapDocument: NSDocument {
     
     var cgImage: CGImage?
     var size: CGSize?
-
-    override var windowNibName: String? {
-        // Override to return the nib file name of the document.
-        // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override makeWindowControllers() instead.
-        return "SIBOBitmapDocument"
+    
+    override func makeWindowControllers() {
+        let windowController: WindowController = WindowController(windowNibName: NSNib.Name("SIBOBitmapDocument"), owner: self)
+        addWindowController(windowController)
     }
 
     override func windowControllerDidLoadNib(_ aController: NSWindowController) {

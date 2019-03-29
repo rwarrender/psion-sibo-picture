@@ -21,6 +21,7 @@
 		79BC317D2229579C00703E2A /* SIBOKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79BC31752229579C00703E2A /* SIBOKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		79BC3182222957B800703E2A /* SIBOBitmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC3181222957B800703E2A /* SIBOBitmap.swift */; };
 		79D6FD91224E0CEF00B9B791 /* ClipViewRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6FD90224E0CEF00B9B791 /* ClipViewRect.swift */; };
+		79E4C6E0224E5AE9006B6AA9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E4C6DF224E5AE9006B6AA9 /* WindowController.swift */; };
 		79E717D4222B2FD6001CA4BD /* SIBOOPLAppDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E717D2222B2FD6001CA4BD /* SIBOOPLAppDocument.swift */; };
 		79E717D5222B2FD6001CA4BD /* SIBOOPLAppDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E717D3222B2FD6001CA4BD /* SIBOOPLAppDocument.xib */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		79BC31782229579C00703E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79BC3181222957B800703E2A /* SIBOBitmap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIBOBitmap.swift; sourceTree = "<group>"; };
 		79D6FD90224E0CEF00B9B791 /* ClipViewRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipViewRect.swift; sourceTree = "<group>"; };
+		79E4C6DF224E5AE9006B6AA9 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		79E717D2222B2FD6001CA4BD /* SIBOOPLAppDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIBOOPLAppDocument.swift; sourceTree = "<group>"; };
 		79E717D3222B2FD6001CA4BD /* SIBOOPLAppDocument.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SIBOOPLAppDocument.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 				7991D662222C07D000FD4669 /* SIBOBitmapDocument.swift */,
 				7991D663222C07D000FD4669 /* SIBOBitmapDocument.xib */,
 				79D6FD90224E0CEF00B9B791 /* ClipViewRect.swift */,
+				79E4C6DF224E5AE9006B6AA9 /* WindowController.swift */,
 			);
 			path = Picture;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79D6FD91224E0CEF00B9B791 /* ClipViewRect.swift in Sources */,
+				79E4C6E0224E5AE9006B6AA9 /* WindowController.swift in Sources */,
 				7991D664222C07D000FD4669 /* SIBOBitmapDocument.swift in Sources */,
 				79BC314922294AFD00703E2A /* AppDelegate.swift in Sources */,
 				79E717D4222B2FD6001CA4BD /* SIBOOPLAppDocument.swift in Sources */,
