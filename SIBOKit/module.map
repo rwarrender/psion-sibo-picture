@@ -1,0 +1,5 @@
+framework module SIBOKit {
+    umbrella header "SIBOKit.H"
+    export *
+    module * { export * }
+}
