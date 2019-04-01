@@ -23,10 +23,10 @@ class SIBOOPLAppDocument: NSDocument {
     override func windowControllerDidLoadNib(_ aController: NSWindowController) {
         super.windowControllerDidLoadNib(aController)
         
-        if let cgImage = app?.icon?.compositeImage(),
-            let size = app?.icon?.bitmapDescriptors.first?.size {
-            imageView.image = NSImage(cgImage: cgImage, size: size.applying(CGAffineTransform.init(scaleX: 3.0, y: 3.0)))
-        }
+//        if let cgImage = app?.icon?.compositeImage(),
+//            let size = app?.icon?.bitmapDescriptors.first?.size {
+//            imageView.image = NSImage(cgImage: cgImage, size: size.applying(CGAffineTransform.init(scaleX: 3.0, y: 3.0)))
+//        }
 
     }
     

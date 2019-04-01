@@ -148,6 +148,25 @@
                                                 <action selector="runToolbarCustomizationPalette:" target="Ady-hI-5gd" id="pQI-g3-MTW"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Style" id="1dp-Qr-dIo">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Style" id="QVI-T5-fZC">
+                                                <items>
+                                                    <menuItem title="Liquid Crystal Display" state="on" id="vSb-Pi-Xi3">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleVisualStyle:" target="Ady-hI-5gd" id="5It-0Z-yCc"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Black and White" tag="1" id="nGK-GH-UcU">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleVisualStyle:" target="Ady-hI-5gd" id="jjx-A6-ioW"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hB3-LF-h0Y"/>
                                         <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>

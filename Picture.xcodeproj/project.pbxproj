@@ -13,6 +13,7 @@
 		796434CE222B107500B6774F /* SIBOString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796434CD222B107500B6774F /* SIBOString.swift */; };
 		7991D664222C07D000FD4669 /* SIBOBitmapDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7991D662222C07D000FD4669 /* SIBOBitmapDocument.swift */; };
 		7991D665222C07D000FD4669 /* SIBOBitmapDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7991D663222C07D000FD4669 /* SIBOBitmapDocument.xib */; };
+		799706372252C3740089A2F6 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799706362252C3740089A2F6 /* ImageView.swift */; };
 		79BC314922294AFD00703E2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BC314822294AFD00703E2A /* AppDelegate.swift */; };
 		79BC314D22294AFF00703E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79BC314C22294AFF00703E2A /* Assets.xcassets */; };
 		79BC315022294AFF00703E2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79BC314E22294AFF00703E2A /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		796434CD222B107500B6774F /* SIBOString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIBOString.swift; sourceTree = "<group>"; };
 		7991D662222C07D000FD4669 /* SIBOBitmapDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIBOBitmapDocument.swift; sourceTree = "<group>"; };
 		7991D663222C07D000FD4669 /* SIBOBitmapDocument.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SIBOBitmapDocument.xib; sourceTree = "<group>"; };
+		799706362252C3740089A2F6 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		79BC314522294AFD00703E2A /* Picture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79BC314822294AFD00703E2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79BC314C22294AFF00703E2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				7991D663222C07D000FD4669 /* SIBOBitmapDocument.xib */,
 				79D6FD90224E0CEF00B9B791 /* ClipViewRect.swift */,
 				79E4C6DF224E5AE9006B6AA9 /* WindowController.swift */,
+				799706362252C3740089A2F6 /* ImageView.swift */,
 			);
 			path = Picture;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799706372252C3740089A2F6 /* ImageView.swift in Sources */,
 				79D6FD91224E0CEF00B9B791 /* ClipViewRect.swift in Sources */,
 				79E4C6E0224E5AE9006B6AA9 /* WindowController.swift in Sources */,
 				7991D664222C07D000FD4669 /* SIBOBitmapDocument.swift in Sources */,

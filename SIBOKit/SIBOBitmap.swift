@@ -31,9 +31,28 @@ public class SIBOBitmap: NSObject {
     }
     
     private let FileHeader: Data = Data(bytes: [0x50, 0x49, 0x43, 0xdc])
-    public static let BlackPlaneColor: CGColor = CGColor(red: 55/255.0, green: 50/255.0, blue: 45/255.0, alpha: 1.0)
-    public static let GrayPlaneColor: CGColor = CGColor(red: 125/255.0, green: 117/255, blue:71/255.0, alpha: 1.0)
-    public static let WhitePlaneColor: CGColor = CGColor(red: 215/255.0, green: 211/255.0, blue: 176/255.0, alpha: 1.0)
+    
+    public struct ColorStyle {
+        public let blackPlane: CGColor
+        public let grayPlane: CGColor
+        public let whitePlane: CGColor
+    }
+    
+    public static let lcd: ColorStyle = {
+        return ColorStyle(
+                blackPlane: CGColor(red: 55/255.0, green: 50/255.0, blue: 45/255.0, alpha: 1.0),
+                grayPlane: CGColor(red: 125/255.0, green: 117/255, blue:71/255.0, alpha: 1.0),
+                whitePlane: CGColor(red: 215/255.0, green: 211/255.0, blue: 176/255.0, alpha: 1.0)
+        )
+    }()
+
+    public static let bw: ColorStyle = {
+        return ColorStyle(
+            blackPlane: CGColor(red: 0, green: 0, blue: 0, alpha: 1.0),
+            grayPlane: CGColor(gray: 0.5, alpha: 1.0),
+            whitePlane: CGColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        )
+    }()
     
     public let formatVersion: Int
     public let oplRuntimeVersion: Int
@@ -114,7 +133,8 @@ public class SIBOBitmap: NSObject {
         return true
     }
     
-    public func compositeImage() -> CGImage? {
+    public func compositeImage(colorStyle: ColorStyle) -> CGImage? {
+        
         guard hasCompositeImage() == true else {
             return nil
         }
@@ -123,25 +143,25 @@ public class SIBOBitmap: NSObject {
         let greyBitmapDescriptor = self.bitmapDescriptors[1]
         
         let size = blackBitmapDescriptor.size
-        var context = createDrawingContext(size: size, transparent: false)
+        var context = createDrawingContext(size: size, transparent: false, background: colorStyle.whitePlane)
      
-        drawPlane(context: &context, for: blackBitmapDescriptor, color: SIBOBitmap.BlackPlaneColor)
-        drawPlane(context: &context, for: greyBitmapDescriptor, color: SIBOBitmap.GrayPlaneColor)
+        drawPlane(context: &context, for: blackBitmapDescriptor, color: colorStyle.blackPlane)
+        drawPlane(context: &context, for: greyBitmapDescriptor, color: colorStyle.grayPlane)
         
         return context.makeImage()!
     }
     
-    public func bitmap(at index: Int, color: CGColor = SIBOBitmap.BlackPlaneColor) -> CGImage {
+    public func bitmap(at index: Int, color: CGColor, background: CGColor) -> CGImage {
         let bitmapDescriptor = self.bitmapDescriptors[index]
         let size = bitmapDescriptor.size
 
-        var context = createDrawingContext(size: size, transparent: false)
+        var context = createDrawingContext(size: size, transparent: false, background: background)
         drawPlane(context: &context, for: bitmapDescriptor, color: color)
         
         return context.makeImage()!
     }
     
-    func createDrawingContext(size: CGSize, transparent:Bool) -> CGContext {
+    func createDrawingContext(size: CGSize, transparent: Bool, background: CGColor) -> CGContext {
         let scale: Int = 1
         
         // Set up context
@@ -153,7 +173,7 @@ public class SIBOBitmap: NSObject {
         context.scaleBy(x: CGFloat(scale), y: -CGFloat(scale))
         
         if (!transparent) {
-            context.setFillColor(SIBOBitmap.WhitePlaneColor)
+            context.setFillColor(background)
             context.fill(CGRect(x: 0, y: 0, width: Int(size.width), height: Int(size.height)))
         }
         

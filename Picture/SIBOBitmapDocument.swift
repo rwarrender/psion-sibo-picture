@@ -16,6 +16,9 @@ class SIBOBitmapDocument: NSDocument {
     @IBOutlet var segmentedControl: NSSegmentedControl!
     @IBOutlet var zoomControl: NSSegmentedControl!
     @IBOutlet var zoomLabel: NSTextField!
+    
+    unowned var selectedStyleItem: NSMenuItem?
+    var selectedColorStyle: SIBOBitmap.ColorStyle = SIBOBitmap.lcd
     var bitmap: SIBOBitmap?
     var zoomFactor: CGFloat = 2.0
     
@@ -31,7 +34,12 @@ class SIBOBitmapDocument: NSDocument {
         super.windowControllerDidLoadNib(aController)
         // Add any code here that needs to be executed once the windowController has loaded the document's window.
         
-        imageView = NSImageView(frame: scrollView.frame)
+        let rootMenu = NSApplication.shared.mainMenu
+        if let viewMenu = rootMenu?.item(withTitle: "View")?.submenu, let styleMenu = viewMenu.item(withTitle: "Style")?.submenu {
+            selectedStyleItem = styleMenu.item(at: 0)
+        }
+        
+        imageView = ImageView(frame: scrollView.frame)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.documentView = imageView
         
@@ -64,6 +72,18 @@ class SIBOBitmapDocument: NSDocument {
                                                object: scrollView)
     }
     
+    @IBAction func toggleVisualStyle(_ sender: NSMenuItem) {
+        selectedStyleItem?.state = .off
+        selectedStyleItem = sender
+        if (sender.tag == 0) {
+            selectedColorStyle = SIBOBitmap.lcd
+        } else if (sender.tag == 1) {
+            selectedColorStyle = SIBOBitmap.bw
+        }
+        selectedStyleItem?.state = .on
+        bitmapSegmentSelected(sender: sender)
+    }
+    
     @IBAction func export(_ sender:Any) {
         let pngExtension = UTTypeCopyPreferredTagWithClass(kUTTypePNG, kUTTagClassFilenameExtension)?.takeRetainedValue() as String?
         
@@ -77,7 +97,7 @@ class SIBOBitmapDocument: NSDocument {
         savePanel.nameFieldStringValue = fullName ?? ""
         savePanel.begin { (response) in
             if response == NSApplication.ModalResponse.OK {
-                let imageRep = NSBitmapImageRep(cgImage: self.bitmap!.compositeImage()!)
+                let imageRep = NSBitmapImageRep(cgImage: self.bitmap!.compositeImage(colorStyle: self.selectedColorStyle)!)
                 let imageData = imageRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])
                 try? imageData?.write(to: savePanel.url!)
             }
@@ -119,7 +139,7 @@ class SIBOBitmapDocument: NSDocument {
     }
     
     func loadComposite() -> Bool {
-        if let cgImage = bitmap?.compositeImage(),
+        if let cgImage = bitmap?.compositeImage(colorStyle: selectedColorStyle),
             let size = bitmap?.bitmapDescriptors.first?.size {
             self.size = size
             self.cgImage = cgImage
@@ -134,7 +154,7 @@ class SIBOBitmapDocument: NSDocument {
     
     func loadBitmap(at index:Int) -> Bool {
         if let descriptor = bitmap?.bitmapDescriptors[index],
-            let cgImage = bitmap?.bitmap(at: index) {
+            let cgImage = bitmap?.bitmap(at: index, color: selectedColorStyle.blackPlane, background: selectedColorStyle.whitePlane) {
             self.size = descriptor.size
             self.cgImage = cgImage
             
@@ -143,14 +163,6 @@ class SIBOBitmapDocument: NSDocument {
             return true
         }
         return false
-    }
-    
-    func imageProperties(size: CGSize) -> [AnyHashable : Any] {
-        
-        return [kCGImagePropertyPixelWidth: size.width,
-                kCGImagePropertyPixelHeight: size.height,
-                kCGImagePropertyDPIWidth: 96.0,
-                kCGImagePropertyDPIHeight: 96.0]
     }
     
     override func read(from data: Data, ofType typeName: String) throws {
