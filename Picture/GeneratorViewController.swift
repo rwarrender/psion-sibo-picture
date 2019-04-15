@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import SIBOKit
 
 class GeneratorViewController: NSViewController, NSTableViewDataSource {
     
@@ -49,6 +50,17 @@ class GeneratorViewController: NSViewController, NSTableViewDataSource {
     }
     
     @IBAction func generate(_ sender: Any) {
-        print(arrayController.arrangedObjects)
+        guard let files = arrayController.arrangedObjects as? [[String: Any]] else {
+            return
+        }
+        
+        guard let urls = files.compactMap({ (result) -> Any? in
+            return result["url"]
+        }) as? [URL] else {
+            return
+        }
+        
+        
+        let data = SIBOBitmap.dataForPlane(using: urls, to: URL(string:"https://www.google.co.uk/")!)
     }
 }

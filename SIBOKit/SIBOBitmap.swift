@@ -256,3 +256,34 @@ extension Data {
         return chars
     }
 }
+
+
+extension SIBOBitmap {
+    public static func dataForPlane(using inputURLs: [URL], to url: URL) -> Data? {
+        
+        let newColorSpace = CGColorSpaceCreateDeviceGray()
+        
+        for inputURL in inputURLs {
+            
+            let image = NSImage(contentsOf: inputURL)
+            let cgImage = image!.cgImage(forProposedRect: nil, context: nil, hints: nil)!
+            cgImage.copy(colorSpace: <#T##CGColorSpace#>)
+
+            
+            var bitmapData: Data = Data()
+            print("\(inputURL): \(cgImage.width), \(cgImage.height)")
+            
+            // cgImage.bitsPerPixel
+            if let data = cgImage.dataProvider?.data as Data? {
+                
+                for i in 0 ..< data.count {
+                    let byte = data.scanByte(at: i)
+                    print(byte)
+                }
+                
+                return bitmapData
+            }
+        }
+        return nil
+    }
+}
