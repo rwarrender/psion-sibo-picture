@@ -49,6 +49,20 @@ class GeneratorViewController: NSViewController, NSTableViewDataSource {
     }
     
     @IBAction func generate(_ sender: Any) {
-        print(arrayController.arrangedObjects)
+        let panel = NSSavePanel()
+        panel.allowedFileTypes = ["pic"]
+        panel.begin { (response) in
+            if (response == .OK) {
+                let importFiles = self.arrayController.arrangedObjects as! [AnyObject]
+                let importURLs = importFiles.compactMap { $0["url"]! }
+                
+                guard let saveURL = panel.url else {
+                    return
+                }
+                
+                print(importURLs, saveURL)
+            }
+        }
+
     }
 }
