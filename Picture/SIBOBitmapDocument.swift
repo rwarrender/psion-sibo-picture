@@ -32,7 +32,6 @@ class SIBOBitmapDocument: NSDocument {
 
     override func windowControllerDidLoadNib(_ aController: NSWindowController) {
         super.windowControllerDidLoadNib(aController)
-        // Add any code here that needs to be executed once the windowController has loaded the document's window.
         
         let rootMenu = NSApplication.shared.mainMenu
         if let viewMenu = rootMenu?.item(withTitle: "View")?.submenu, let styleMenu = viewMenu.item(withTitle: "Style")?.submenu {
@@ -93,13 +92,34 @@ class SIBOBitmapDocument: NSDocument {
             fullName = baseName.appendingPathExtension(pngExtension ?? "")
         }
         
+        guard let bitmap = self.bitmap else {
+            return
+        }
+        
+        let exportOptionsView = ExportOptionsView.fromNib()!
+        exportOptionsView.setupView(bitmap: bitmap)
+        
         let savePanel = NSSavePanel()
+        savePanel.accessoryView = exportOptionsView
         savePanel.nameFieldStringValue = fullName ?? ""
         savePanel.begin { (response) in
+            guard let saveURL = savePanel.url else {
+                return
+            }
+            
             if response == NSApplication.ModalResponse.OK {
-                let imageRep = NSBitmapImageRep(cgImage: self.bitmap!.compositeImage(colorStyle: self.selectedColorStyle)!)
-                let imageData = imageRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])
-                try? imageData?.write(to: savePanel.url!)
+                if exportOptionsView.selectedMode == .composite {
+                    let cgImage = bitmap.compositeImage(colorStyle: SIBOBitmap.lcd)
+                    try? cgImage?.pngData.write(to: saveURL)
+                } else {
+                    guard let bitmapIndex = exportOptionsView.bitmapIndex else {
+                        return
+                    }
+                    let cgImage = bitmap.bitmap(at: bitmapIndex,
+                                                color: SIBOBitmap.bw.blackPlane,
+                                                background: SIBOBitmap.bw.whitePlane)
+                    try? cgImage.pngData.write(to: saveURL)
+                }
             }
         }
         
@@ -145,7 +165,7 @@ class SIBOBitmapDocument: NSDocument {
             self.cgImage = cgImage
         
             imageView.image = NSImage(cgImage: cgImage, size: size)
-            imageView.setNeedsDisplay()
+            imageView.needsDisplay = true
 
             return true
         }
@@ -159,7 +179,7 @@ class SIBOBitmapDocument: NSDocument {
             self.cgImage = cgImage
             
             imageView.image = NSImage(cgImage: cgImage, size: size!)
-            imageView.setNeedsDisplay()
+            imageView.needsDisplay = true
             return true
         }
         return false
@@ -179,4 +199,11 @@ class SIBOBitmapDocument: NSDocument {
         return false
     }
     
+}
+
+extension CGImage {
+    var pngData: Data {
+        let imageRep = NSBitmapImageRep(cgImage: self)
+        return imageRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:]) ?? Data()
+    }
 }

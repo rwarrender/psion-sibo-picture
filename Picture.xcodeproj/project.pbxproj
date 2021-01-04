@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		795CA2B325A3AB6E00BC28B9 /* ExportOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 795CA2B225A3AB6E00BC28B9 /* ExportOptionsView.xib */; };
+		795CA2B625A3AB7A00BC28B9 /* ExportOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795CA2B525A3AB7A00BC28B9 /* ExportOptionsView.swift */; };
 		795CAC83222ACEBF0010C5DC /* CRC16.c in Sources */ = {isa = PBXBuildFile; fileRef = 795CAC81222ACEBF0010C5DC /* CRC16.c */; };
 		795CAC85222AD39C0010C5DC /* CRC16.h in Headers */ = {isa = PBXBuildFile; fileRef = 795CAC80222ACEBF0010C5DC /* CRC16.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		796434CA222B027200B6774F /* SIBOOPLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796434C9222B027200B6774F /* SIBOOPLApp.swift */; };
@@ -25,7 +27,6 @@
 		79D6FD91224E0CEF00B9B791 /* ClipViewRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6FD90224E0CEF00B9B791 /* ClipViewRect.swift */; };
 		79E4C6E0224E5AE9006B6AA9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E4C6DF224E5AE9006B6AA9 /* WindowController.swift */; };
 		79E717D4222B2FD6001CA4BD /* SIBOOPLAppDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E717D2222B2FD6001CA4BD /* SIBOOPLAppDocument.swift */; };
-		79E717D5222B2FD6001CA4BD /* SIBOOPLAppDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79E717D3222B2FD6001CA4BD /* SIBOOPLAppDocument.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		795CA2B225A3AB6E00BC28B9 /* ExportOptionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportOptionsView.xib; sourceTree = "<group>"; };
+		795CA2B525A3AB7A00BC28B9 /* ExportOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportOptionsView.swift; sourceTree = "<group>"; };
 		795CAC80222ACEBF0010C5DC /* CRC16.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRC16.h; sourceTree = "<group>"; };
 		795CAC81222ACEBF0010C5DC /* CRC16.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CRC16.c; sourceTree = "<group>"; };
 		795CAC84222AD0CE0010C5DC /* module.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
@@ -75,7 +78,6 @@
 		79D6FD90224E0CEF00B9B791 /* ClipViewRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipViewRect.swift; sourceTree = "<group>"; };
 		79E4C6DF224E5AE9006B6AA9 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		79E717D2222B2FD6001CA4BD /* SIBOOPLAppDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIBOOPLAppDocument.swift; sourceTree = "<group>"; };
-		79E717D3222B2FD6001CA4BD /* SIBOOPLAppDocument.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SIBOOPLAppDocument.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,13 +126,14 @@
 				79BC315122294AFF00703E2A /* Info.plist */,
 				79BC315222294AFF00703E2A /* Picture.entitlements */,
 				79E717D2222B2FD6001CA4BD /* SIBOOPLAppDocument.swift */,
-				79E717D3222B2FD6001CA4BD /* SIBOOPLAppDocument.xib */,
 				7991D662222C07D000FD4669 /* SIBOBitmapDocument.swift */,
 				7991D663222C07D000FD4669 /* SIBOBitmapDocument.xib */,
 				79D6FD90224E0CEF00B9B791 /* ClipViewRect.swift */,
 				79E4C6DF224E5AE9006B6AA9 /* WindowController.swift */,
 				799706362252C3740089A2F6 /* ImageView.swift */,
 				79A78778225E10F900261DB5 /* GeneratorViewController.swift */,
+				795CA2B225A3AB6E00BC28B9 /* ExportOptionsView.xib */,
+				795CA2B525A3AB7A00BC28B9 /* ExportOptionsView.swift */,
 			);
 			path = Picture;
 			sourceTree = "<group>";
@@ -209,10 +212,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					79BC314422294AFD00703E2A = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1230;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -221,7 +225,7 @@
 					};
 					79BC31742229579C00703E2A = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1230;
 					};
 				};
 			};
@@ -252,7 +256,7 @@
 				7991D665222C07D000FD4669 /* SIBOBitmapDocument.xib in Resources */,
 				79BC314D22294AFF00703E2A /* Assets.xcassets in Resources */,
 				79BC315022294AFF00703E2A /* Main.storyboard in Resources */,
-				79E717D5222B2FD6001CA4BD /* SIBOOPLAppDocument.xib in Resources */,
+				795CA2B325A3AB6E00BC28B9 /* ExportOptionsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				795CA2B625A3AB7A00BC28B9 /* ExportOptionsView.swift in Sources */,
 				799706372252C3740089A2F6 /* ImageView.swift in Sources */,
 				79D6FD91224E0CEF00B9B791 /* ClipViewRect.swift in Sources */,
 				79E4C6E0224E5AE9006B6AA9 /* WindowController.swift in Sources */,
@@ -339,6 +344,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -364,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -400,6 +406,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -419,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -437,7 +444,8 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = FF56S98M7W;
+				DEVELOPMENT_TEAM = PC62R25C6A;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Picture/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -446,7 +454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.richardwarrender.psion.sibo.picture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -459,7 +467,8 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = FF56S98M7W;
+				DEVELOPMENT_TEAM = PC62R25C6A;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Picture/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,7 +477,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.richardwarrender.psion.sibo.picture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -499,7 +508,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -531,7 +540,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

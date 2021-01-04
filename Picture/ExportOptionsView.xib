@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="ExportOptionsView" customModule="Picture" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="438" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rUP-ja-IOu">
+                    <rect key="frame" x="0.0" y="0.0" width="438" height="110"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o0Y-UG-vqd">
+                            <rect key="frame" x="129" y="20" width="181" height="70"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mf9-bh-r8u">
+                                    <rect key="frame" x="-2" y="27" width="34" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Type" id="nWD-aI-uGy">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="C9e-Dy-2uh">
+                                    <rect key="frame" x="35" y="21" width="150" height="25"/>
+                                    <popUpButtonCell key="cell" type="push" title="Combined" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" selectedItem="BCl-yw-bNb" id="3XN-ZN-WCd">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="menu"/>
+                                        <menu key="menu" id="qWK-OK-Rkd">
+                                            <items>
+                                                <menuItem title="Combined" state="on" tag="1" id="BCl-yw-bNb"/>
+                                                <menuItem title="Individual Bitmaps" tag="2" id="ADU-Wa-ZaX"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                    <connections>
+                                        <action selector="modeDidChangeWithId:" target="c22-O7-iKe" id="Ehr-lJ-QfR"/>
+                                    </connections>
+                                </popUpButton>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="EcU-9q-gNI"/>
+                    <viewLayoutGuide key="layoutMargins" id="Z5r-sB-hq5"/>
+                    <edgeInsets key="edgeInsets" left="20" right="20" top="20" bottom="20"/>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rUP-ja-IOu" secondAttribute="bottom" id="5Du-7v-Fk1"/>
+                <constraint firstItem="rUP-ja-IOu" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="C7d-OI-mX1"/>
+                <constraint firstItem="rUP-ja-IOu" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="DfK-kj-8UO"/>
+                <constraint firstAttribute="trailing" secondItem="rUP-ja-IOu" secondAttribute="trailing" id="dpx-NC-8Fu"/>
+            </constraints>
+            <connections>
+                <outlet property="modePopupButton" destination="C9e-Dy-2uh" id="yJs-r4-T0b"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="31"/>
+        </customView>
+    </objects>
+</document>

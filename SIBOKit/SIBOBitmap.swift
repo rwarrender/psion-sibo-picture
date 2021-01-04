@@ -30,7 +30,7 @@ public class SIBOBitmap: NSObject {
         }
     }
     
-    private let FileHeader: Data = Data(bytes: [0x50, 0x49, 0x43, 0xdc])
+    private let FileHeader: Data = Data([0x50, 0x49, 0x43, 0xdc])
     
     public struct ColorStyle {
         public let blackPlane: CGColor
